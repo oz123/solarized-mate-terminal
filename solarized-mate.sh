@@ -1,8 +1,15 @@
 #!/bin/bash
-
+set +x
 SCHEME=${1:-"light"}
 PROFILE=${2:-"default"}
 INTERACTIVE=${3:-"1"}
+
+DCONF=`which dconf`
+
+if [ -z $DCONF ]; then
+    echo "Please install dconf-cli and dconf-editor"
+    exit 1
+fi
 
 SCHEMES=(dark light)
 echo "Available schemes:"`printf -- ' %s' "${SCHEMES[@]}"`
