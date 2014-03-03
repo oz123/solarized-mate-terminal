@@ -57,6 +57,6 @@ dconf write /org/mate/terminal/profiles/${PROFILE}/palette \"$COLORS\"
 dconf write /org/mate/terminal/profiles/${PROFILE}/bold-color-same-as-fg false
 dconf write /org/mate/terminal/profiles/${PROFILE}/background-color \"$BGCOLOR\"
 dconf write /org/mate/terminal/profiles/${PROFILE}/foreground-color \"$FGCOLOR\"
-dconf write /org/mate/terminal/profiles/${PROFILE}/bold_color \"$BOLDCOLOR\"
+dconf write /org/mate/terminal/profiles/${PROFILE}/bold-color \"$BOLDCOLOR\"
 
 echo -e "\e[37;41mTerminal must be restarted\e[0m"
