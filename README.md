@@ -13,6 +13,6 @@ Then run the script in the following way:
     $ bash solarized-mate.sh dark profile0
     $ bash solarized-mate.sh light profile1
 
-Restat you terminal, enjoy a beatiful theme!
+Restart you terminal, enjoy a beatiful theme!
 
 
