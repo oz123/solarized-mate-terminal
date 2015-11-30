@@ -5,14 +5,17 @@ solarized mate terminal
 
 ## Usage
 
-Click on `edit->profiles` in your `mate-terminal`, 
-create 2 empty profiles, name them `solarized-dark` and `solarized-light`
-if you like.
 Then run the script in the following way:
 
-    $ bash solarized-mate.sh dark profile0
-    $ bash solarized-mate.sh light profile1
+    $ bash solarized-mate.sh
 
 Restart you terminal, enjoy a beatiful theme!
 
+The above will create a dark and light solarized themes.
+To remove these themes, run the script in the following
+way:
 
+    $ bash solarized-mate --reset
+
+Be warned though, this will remove all  custom themes, not
+just the ones installed by the script.
