@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x
 
 which dconf || { echo "Please install dconf-cli"; exit 1; }
 
@@ -11,10 +10,10 @@ fi
 # read profiles as string
 PROFILES=`dconf read /org/mate/terminal/global/profile-list`
 # add new profiles
-if [ -z ${PROFILES} ]; then
+
+if [ -z "${PROFILES}" ]; then
 	PROFILES="['default','solarized-dark', 'solarized-light']"
-else
-    echo "f	"
+else	
     if [[ ${PROFILES} =~ 'solarized-dark' || ${PROFILES} =~ 'solarized-light' ]]; then
     	echo "Found solarized in your themes, refusing to run twice"
         echo "You can reset these setting with"
