@@ -1,6 +1,8 @@
 #!/bin/bash
 
-which dconf || { echo "Please install dconf-cli"; exit 1; }
+set -e
+
+which dconf 1>&2 > /dev/null || { echo "Please install dconf-cli"; exit 1; }
 
 if [[ $1 == "--reset" ]]; then
    dconf reset -f /org/mate/terminal/global/profile-list
@@ -12,17 +14,16 @@ PROFILES=`dconf read /org/mate/terminal/global/profile-list`
 # add new profiles
 
 if [ -z "${PROFILES}" ]; then
-	PROFILES="['default','solarized-dark', 'solarized-light']"
-else	
-    if [[ ${PROFILES} =~ 'solarized-dark' || ${PROFILES} =~ 'solarized-light' ]]; then
-    	echo "Found solarized in your themes, refusing to run twice"
-        echo "You can reset these setting with"
-        echo `basename "$0"` "--reset"
-        exit 1
-    else
-		M="'solarized-dark', 'solarized-light']"
-		PROFILES=${PROFILES/\']/, $M}
-    fi
+    PROFILES="['default','solarized-dark', 'solarized-light']"
+elif [[ ${PROFILES} =~ 'solarized-dark' || ${PROFILES} =~ 'solarized-light' ]]; then
+    echo "Found solarized in your themes, refusing to run twice"
+    echo "You can reset these setting with"
+    echo `basename "$0"` "--reset"
+    exit 1
+else
+    echo ${PROFILES}
+    M="'solarized-dark', 'solarized-light']"
+    PROFILES=${PROFILES/]/, $M}
 fi
 
 dconf write /org/mate/terminal/global/profile-list "${PROFILES}"
