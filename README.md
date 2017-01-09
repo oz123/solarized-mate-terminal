@@ -5,7 +5,7 @@ solarized mate terminal
 
 ## Usage
 
-Then run the script in the following way:
+Clone this repo and then run the script in the following way:
 
     $ bash solarized-mate.sh
 
