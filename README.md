@@ -17,5 +17,5 @@ way:
 
     $ bash solarized-mate --reset
 
-Be warned though, this will remove all  custom themes, not
+Warning!!, this will remove all  custom themes, not
 just the ones installed by the script.
